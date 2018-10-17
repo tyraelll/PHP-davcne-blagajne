@@ -1,7 +1,7 @@
 <?php
 
-	require_once __CORE_OPENPROF_ROOT__.'include/library/xmlseclibs/xmlseclibs.php';
-	require_once __CORE_OPENPROF_ROOT__.'include/library/phpqrcode/phpqrcode.php';
+	require_once __DIR__ . '/include/lib/xmlseclibs/xmlseclibs.php';
+	require_once __DIR__ . '/include/lib/phpqrcode/phpqrcode.php';
 	
 	use RobRichards\XMLSecLibs\XMLSecurityDSig;
 	use RobRichards\XMLSecLibs\XMLSecurityKey;
@@ -33,13 +33,13 @@
 		
 		public function __construct()
 		{
-			$this->qrDirPath							= OpenProfGlobal::getLocalROOT().'include/furs/qr/';
-			$this->testXMLPath							= OpenProfGlobal::getLocalROOT().'include/furs/test_xml/';
-			$this->certsPath							= OpenProfGlobal::getLocalROOT().'include/furs/certs/';
-			$this->myCertificatePathPem					= $this->certsPath.'XXXXX-2.pem';
-			$this->myCertificatePathP12					= $this->certsPath.'XXXXX-2.p12';
-			$this->myCertificatePassword				= 'XXXXX';
-			$this->fursCertificatePath					= $this->certsPath.'sigov-ca.pem';
+			$this->qrDirPath							= __DIR__.'/include/qr/';
+			$this->testXMLPath							= __DIR__ . '/include/test_xml/business.xml';
+			$this->certsPath							= __DIR__ . '/include/certs/';
+			$this->myCertificatePathPem					= $this->certsPath.'10337083-1.pem';
+			$this->myCertificatePathP12					= $this->certsPath.'10337083-1.p12';
+			$this->myCertificatePassword				= 'USBBKDYM2D9Q';
+			$this->fursCertificatePath					= $this->certsPath.'test-tls.cer';
 			$this->companyTaxNum 						= 'XXXXX';
 			$this->softwareSupplierTaxNum 				= 'XXXXX';
 			$this->url2post 							= 'https://blagajne.fu.gov.si:9003/v1/cash_registers';
@@ -47,10 +47,10 @@
 		
 		public function setTestMode()
 		{
-			$this->myCertificatePathPem					= $this->certsPath.'XXXXX-1.pem';
-			$this->myCertificatePathP12					= $this->certsPath.'XXXXX-1.p12';
-			$this->myCertificatePassword				= 'XXXXX';
-			$this->fursCertificatePath					= $this->certsPath.'furs-server-test.pem';
+			$this->myCertificatePathPem					= $this->certsPath.'10337083-1.pem';
+			$this->myCertificatePathP12					= $this->certsPath.'10337083-1.p12';
+			$this->myCertificatePassword				= 'USBBKDYM2D9Q';
+			$this->fursCertificatePath					= $this->certsPath.'sigov-ca.crt';
 			$this->companyTaxNum 						= 'XXXXX';
 			$this->url2post 							= 'https://blagajne-test.fu.gov.si:9002/v1/cash_registers';
 		}
